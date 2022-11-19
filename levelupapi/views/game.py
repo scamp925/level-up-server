@@ -3,18 +3,18 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from levelupapi.models import Event
+from levelupapi.models import Game
 
-class EventView(ViewSet):
-    """Level up events view"""
+class GameView(ViewSet):
+    """ Level up games view"""
     
     def retrieve(self, request, pk):
-        """Handle GET requests from single event
+        """Handle GET requests from single game
         Returns:
-            Response -- JSON serialized event
+            Response -- JSON serialized game
         """
-        event = Event.objects.get(pk=pk)
-        serializer = EventSerializer(event)
+        game = Game.objects.get(pk=pk)
+        serializer = GameSerializer(game)
         return Response(serializer.data)
       
     def list(self, request):
@@ -23,13 +23,13 @@ class EventView(ViewSet):
         Returns:
             Response -- JSON serialized list of events
         """
-        events = Event.objects.all()
-        serializer = EventSerializer(events, many=True)
+        games = Game.objects.all()
+        serializer = GameSerializer(games, many=True)
         return Response(serializer.data)
-      
-class EventSerializer(serializers.ModelSerializer):
-    """JSON serializer for events
+
+class GameSerializer(serializers.ModelSerializer):
+    """JSON serializer for games
     """
     class Meta:
-        model = Event
-        fields = ('id', 'game', 'description', 'date', 'time', 'organizer')
+        model = Game
+        fields = ('id', 'game_type', 'title', 'maker', 'gamer', 'number_of_players', 'skill_levels')
