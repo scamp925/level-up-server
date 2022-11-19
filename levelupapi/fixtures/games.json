@@ -7,8 +7,8 @@
           "maker": "Hasbro",
           "number_of_players": 4,
           "skill_level": 3,
-          "game_type_id": 1,
-          "gamer_id": 1 
+          "game_type": 1,
+          "gamer": 1 
       }
   },
   {
@@ -19,8 +19,8 @@
         "maker": "Stellar Factory",
         "number_of_players": 7,
         "skill_level": 1,
-        "game_type_id": 2,
-        "gamer_id": 1 
+        "game_type": 2,
+        "gamer": 1 
     }
-}
+  }
 ]

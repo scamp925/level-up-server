@@ -1,0 +1,24 @@
+[
+  {
+      "model": "levelupapi.event",
+      "pk": 1,
+      "fields": {
+          "description": "Come play Trivial Pursuit Star Wars Saga Edition for the chance to be crowned a true Star Wars fan",
+          "date": "2022-11-10",
+          "time": "10:00",
+          "game": 1,
+          "organizer": 1
+      }
+  },
+  {
+    "model": "levelupapi.event",
+    "pk": 2,
+    "fields": {
+        "description": "Oh no! There's a werewolf loose in Nashville! There's mayhem everywhere! Come join the fun",
+        "date": "2026-05-15",
+        "time": "11:00",
+        "game": 2,
+        "organizer": 1
+    }
+}
+]
