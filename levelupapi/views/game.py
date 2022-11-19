@@ -32,4 +32,4 @@ class GameSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Game
-        fields = ('id', 'game_type', 'title', 'maker', 'gamer', 'number_of_players', 'skill_levels')
+        fields = ('id', 'game_type', 'title', 'maker', 'gamer', 'number_of_players', 'skill_level')
