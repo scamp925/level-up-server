@@ -24,6 +24,11 @@ class EventView(ViewSet):
             Response -- JSON serialized list of events
         """
         events = Event.objects.all()
+        
+        game_of_event = request.query_params.get('game', None)
+        if game_of_event is not None:
+            events = events.filter(game_id=game_of_event)
+        
         serializer = EventSerializer(events, many=True)
         return Response(serializer.data)
       
