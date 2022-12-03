@@ -2,8 +2,9 @@
 from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
+from rest_framework.decorators import action
 from rest_framework import serializers, status
-from levelupapi.models import Event, Game, Gamer
+from levelupapi.models import Event, Game, Gamer, EventGamer
 
 class EventView(ViewSet):
     """Level up events view"""
@@ -78,6 +79,17 @@ class EventView(ViewSet):
         
         return Response(None, status=status.HTTP_204_NO_CONTENT)
     
+    @action(methods=['post'], detail=True)
+    def signup(self, request, pk):
+        """Post request for a user to sign up for an event"""
+
+        gamer = Gamer.objects.get(uid=request.data["uid"])
+        event = Event.objects.get(pk=pk)
+        EventGamer.objects.create(
+            gamer = gamer,
+            event = event
+        )
+        return Response({'message': 'Gamer added'}, status=status.HTTP_201_CREATED)
           
 class EventSerializer(serializers.ModelSerializer):
     """JSON serializer for events
