@@ -110,7 +110,7 @@ class EventView(ViewSet):
             event = event
         )
         event_gamer.delete()
-        return Response({'message': 'Gamer has left'}, status=status.HTTP_204_NO_CONTENT)
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
           
 class EventSerializer(serializers.ModelSerializer):
     """JSON serializer for events
